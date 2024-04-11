@@ -1,0 +1,112 @@
+"" -- ideavim settings --
+set keep-english-in-normal
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode
+set ideaput
+set ideamarks
+set easymotion
+set NERDTree
+set surround
+set multiple-cursors
+set commentary
+set ReplaceWithRegister
+set argtextobj
+set highlightedyank
+
+" Don't use Ex mode, use Q for formatting.
+"map Q gq
+
+"" -- vim settings --
+syntax on
+set scrolloff=5
+set number
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set spell
+set wrap
+set autoindent
+set clipboard^=unnamedplus
+set laststatus=2
+set wildmode=longest,list,full
+set wildmenu
+set cursorline
+set visualbell
+set showmode
+
+" easymotion
+let mapleader=","
+map <leader>f <Plug>(easymotion-s)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+
+" NERDTree
+nmap <leader>e :NERDTreeFind<cr>
+nmap <leader>E :NERDTreeToggle<cr>
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+
+" Active Editor Close
+map <C-w><C-o> <Action>(CloseAllEditorsButActive)
+
+" editor file move
+"map <C-g><C-w>
+
+" Code jump code reading
+nmap gb <Action>(Back)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gf <Action>(Forward)
+nmap gl <Action>(QuickJavaDoc)
+nmap gL <Action>(QuickImplementations)
+nmap gh <Action>(ShowErrorDescription)
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+nmap ]q <Action>(GotoNextElementUnderCaretUsage)
+nmap [q <Action>(GotoPrevElementUnderCaretUsage)
+
+" debug
+nmap <leader>b <Action>(ToggleLineBreakpoint)
+
+" hierarchy
+nmap <leader>c <Action>(CallHierarchy)
+
+" show hover info
+nmap <C-k> <Action>(ShowHoverInfo)
+
+" vcs
+nmap \p <Action>(Vcs.UpdateProject)
+nmap \h <Action>(Vcs.ShowTabbedFileHistory)
+
+" Annotate
+nmap <leader>a <Action>(Annotate)
+
+" FileStructurePopup
+nmap \f <Action>(FileStructurePopup)
+
+" CompleteStatement
+nmap <leader>s <Action>(Code Generation)
+
+" Zen mode
+nmap cz <Action>(ToggleDistractionFreeMode)
+
+" Active editor tab
+nmap <leader>m <Action>(ActiveEditorTab)
+
+" Active terminal tool window
+nmap \t <Action>(ActivateTerminalToolWindow)
+
+" Clear search highlighting when pressing Esc twice
+nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
+
+" Use Q for formatting the current paragraph (or visual selection)
+vmap Q gq
+nmap Q gqap
+
+" These create newlines like o and O but stay in normal mode
+nmap zj o<Esc>k
+nmap zk O<Esc>j
+
+" why?
+inoremap <Esc> <C-[>

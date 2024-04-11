@@ -1,0 +1,25 @@
+* {
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "Cousine for Powerline";
+    background-color: rgba(43, 48, 70, 0.1);
+}
+
+#entry {
+    padding: 0.25em;
+}
+
+#entry:selected {
+    border-color: #ddd;
+    background-color: rgba(4, 5, 30, 0.9);
+}
+
+#text:selected {
+    color: white;
+}
+
+image {
+    margin-left: .25em;
+    margin-right: .25em;
+}
