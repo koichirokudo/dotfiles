@@ -2,17 +2,16 @@
     color: white;
     border-radius: 10px;
     font-size: 15px;
-    font-family: "Cousine for Powerline";
-    background-color: rgba(43, 48, 70, 0.1);
+    font-family: "M PLUS 1p";
+    background-color: rgba(43, 55, 90, 0.2);
 }
 
 #entry {
-    padding: 0.25em;
+    padding: 0.6em;
 }
 
 #entry:selected {
-    border-color: #ddd;
-    background-color: rgba(4, 5, 30, 0.9);
+    background-color: rgba(25, 25, 30, 0.8);
 }
 
 #text:selected {
@@ -20,6 +19,6 @@
 }
 
 image {
-    margin-left: .25em;
-    margin-right: .25em;
+    margin-left: .5em;
+    margin-right: .5em;
 }
