@@ -32,3 +32,5 @@ function main () {
   command echo "#####################################################"
   command echo ""
 }
+
+main

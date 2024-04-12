@@ -4,6 +4,9 @@ set -ue
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utils.sh
 
 function install_fonts() {
+  command echo ""
+  command echo -e "Running... $(basename $0)"
+  command echo ""
   local distro=$(whichdistro)
   if [[ $distro == "arch" ]]; then
     yay -S --noconfirm --needed noto-fonts-cjk ttf-jetbrains-mono-nerd \
@@ -14,6 +17,10 @@ function install_fonts() {
     rm -rf MPLUS_FONTS
   elif [[ $distro == "ubuntu" ]]; then
     :
-  if
+  fi
+  command echo ""
+  command echo -e "Done... $(basename $0)"
+  command echo ""
 }
 
+install_fonts

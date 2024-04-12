@@ -13,6 +13,9 @@ helpmsg() {
 }
 
 link_to_homedir() {
+  command echo ""
+  command echo -e "Running... $(basename $0)"
+  command echo ""
   command echo "backup old dotfiles..."
   if [ ! -d "$HOME/.dotbackup" ];then
     command echo "$HOME/.dotbackup not found. Auto Make it"
@@ -65,8 +68,6 @@ done
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
   command echo ""
-  command echo "#####################################################"
-  command echo -e "\e[1;36m $(basename $0) install success!!! \e[m"
-  command echo "#####################################################"
+  command echo -e "Done... $(basename $0)"
   command echo ""
 fi
