@@ -26,7 +26,8 @@ function whichdistro() {
 function password() {
   if ! ${password+:} false
     then
-      printf "password: "
+      echo "password: "
       read -s password
   fi
 }
+

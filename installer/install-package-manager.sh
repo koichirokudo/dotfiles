@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ue
+set -uex
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utils.sh
 
@@ -8,15 +8,21 @@ function install_package_manager() {
   command echo -e "Running... $(basename $0)"
   command echo ""
   local distro=$(whichdistro)
+  local current_dir="$(cd "$(dirname "$0")" && pwd)"
   if [[ $distro == "arch" ]]; then
     # install yay paru
-    $(password) | echo "$password" | sudo -S pacman -S --noconfirm --needed go git
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si
-    cd ~
-    rm -rf ~/yay
-    yay -Syu
+    sudo -S pacman -S --noconfirm --needed go git base-devel debugedit fakeroot
+    if which yay &>/dev/null; then
+      command echo "yay is installed."
+    else
+      cd /var/tmp
+      git clone https://aur.archlinux.org/yay.git
+      cd yay
+      makepkg -si
+      rm -rf ~/yay
+      cd $current_dir
+    fi
+      yay -Syyu
   fi
   command echo ""
   command echo -e "Done... $(basename $0)"

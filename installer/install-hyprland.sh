@@ -9,12 +9,12 @@ function install_hyprland () {
   command echo ""
   local distro=$(whichdistro)
   if [[ $distro == "arch" ]]; then
-		ysy -S --noconfirm --needed hyprland hyprpaper waybar \
+    yay -S --noconfirm --needed hyprland hyprpaper waybar \
     hypridle hyprlock hyprcursor hyprlang \
     xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
-	elif [[ $distro == "ubuntu" ]]; then
-		:
-	fi
+  elif [[ $distro == "ubuntu" ]]; then
+    :
+  fi
   command echo ""
   command echo -e "Done... $(basename $0)"
   command echo ""

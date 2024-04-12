@@ -9,13 +9,13 @@ function install_apps () {
   command echo ""
   local distro=$(whichdistro)
   if [[ $distro == "arch" ]]; then
-		yay -S --noconfirm --needed vim neovim bat vgrep pamixer php nodejs \
-      man pavucontrol polkit-gnome python-requests grimshot spotify \
+    yay -S --noconfirm --needed vim neovim bat vgrep pamixer php nodejs \
+      man pavucontrol polkit-gnome python-requests grimshot spotify-launcher \
       firefox chromium microsoft-edge-stable gufw clamav clamtk thunar \
       dracula-icons-git dracula-gtk-theme 
-	elif [[ $distro == "ubuntu" ]]; then
-		:
-	fi
+  elif [[ $distro == "ubuntu" ]]; then
+    :
+  fi
   command echo ""
   command echo -e "Done... $(basename $0)"
   command echo ""

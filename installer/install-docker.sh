@@ -9,18 +9,17 @@ function install_docker () {
   command echo ""
   local distro=$(whichdistro)
   if [[ $distro == "arch" ]]; then
-		yay -S --noconfirm --needed docker docker-compose
-    echo "$password" | sudo -S usermod -aG docker $USER
-    if [ ! -d /sda/docker ]; then
+    yay -S --noconfirm --needed docker docker-compose
+    sudo -S usermod -aG docker $USER
+    if [ -d /sda ] && [ ! -d /sda/docker ]; then
       mkdir -p /sda/docker
+      cp -ar /var/lib/docker /sda/docker/
+      sudo -S sed -i '/ExecStart/s/$/ --data-root \/sda\/docker/' /lib/systemd/system/docker.service
     fi
-    cp -ar /var/lib/docker /sda/docker/
-    echo "$password" | sudo -S sed -i '/ExecStart/s/$/ --data-root \/sda\/docker/' \
-      /lib/systemd/system/docker.service
-    echo "$password" | sudo -S systemctl enable docker
-	elif [[ $distro == "ubuntu" ]]; then
-		:
-	fi
+    sudo -S systemctl enable docker
+  elif [[ $distro == "ubuntu" ]]; then
+    :
+  fi
   command echo ""
   command echo -e "Done... $(basename $0)"
   command echo ""

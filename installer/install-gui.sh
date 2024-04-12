@@ -9,11 +9,11 @@ function install_gui () {
   command echo ""
   local distro=$(whichdistro)
   if [[ $distro == "arch" ]]; then
-		yay -S --noconfirm --needed acpid xorg lightdm
-    echo "$password" | sudo -S systemctl enable lightdm
-	elif [[ $distro == "ubuntu" ]]; then
-		:
-	fi
+    yay -S --noconfirm --needed acpid xorg lightdm
+    sudo -S systemctl enable lightdm
+  elif [[ $distro == "ubuntu" ]]; then
+    :
+  fi
   command echo ""
   command echo -e "Done... $(basename $0)"
   command echo ""
