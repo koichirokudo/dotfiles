@@ -12,7 +12,7 @@ function install_apps () {
     yay -S --noconfirm --needed vim neovim bat vgrep pamixer php nodejs \
       man pavucontrol polkit-gnome python-requests grimshot spotify-launcher \
       firefox chromium microsoft-edge-stable gufw clamav clamtk thunar \
-      dracula-icons-git dracula-gtk-theme 
+      dracula-icons-git dracula-gtk-theme fzf starship tmux feh ranger
   elif [[ $distro == "ubuntu" ]]; then
     :
   fi
