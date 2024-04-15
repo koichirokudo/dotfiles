@@ -111,6 +111,7 @@ export LOCAL_DEV="TRUE"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000
 export SAVESIZE=100000
+export EDITOR="vim"
 
 # aliases
 alias zshconfig="vim ~/.zshrc"
