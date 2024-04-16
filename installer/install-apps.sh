@@ -9,11 +9,12 @@ function install_apps () {
   command echo ""
   local distro=$(whichdistro)
   if [[ $distro == "arch" ]]; then
-    yay -S --noconfirm --needed vim neovim bat vgrep pamixer php nodejs \
+    yay -S --noconfirm --needed vim neovim pamixer php nodejs networkmanager \
       man pavucontrol polkit-gnome python-requests grimshot spotify-launcher \
-      firefox chromium microsoft-edge-stable gufw clamav clamtk thunar \
-      dracula-icons-git dracula-gtk-theme fzf starship tmux feh ranger dnsutils mutt \
-      cliphist wofi
+      firefox chromium microsoft-edge-stable vivaldi ufw clamav clamtk thunar \
+      tmux feh ranger dnsutils mutt cliphist wofi
+      sudo systemctl enable NetworkManager.service
+      sudo systemctl enable ufw
   elif [[ $distro == "ubuntu" ]]; then
     :
   fi
