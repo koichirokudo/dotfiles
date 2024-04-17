@@ -121,10 +121,12 @@ alias view="nvim -R"
 alias cat="bat"
 alias chromium="chromium --ozone-platform=wayland --enable-wayland-ime"
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --gtk-version=4 --verbose"
+alias ls="ls --hyperlink=auto --color=auto"
+alias icat="kitty +kitten icat"
 
 # kitty config
 if [[ "$TERM" == "xterm-kitty" ]]; then
-  alias ssh="kitten ssh"
+  alias ssh="TERM=xterm /usr/bin/ssh"
 fi
 
 setopt no_beep
