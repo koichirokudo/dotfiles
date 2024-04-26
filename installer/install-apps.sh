@@ -12,7 +12,8 @@ function install_apps () {
     yay -S --noconfirm --needed vim neovim pamixer php nodejs networkmanager \
       man pavucontrol polkit-gnome python-requests grimshot spotify-launcher \
       firefox chromium microsoft-edge-stable vivaldi ufw clamav clamtk thunar \
-      tmux feh ranger dnsutils mutt cliphist wofi gvfs
+      tmux feh ranger dnsutils mutt cliphist wofi gvfs npm typescript-language-server \
+      grex fd delta csview git-delta
       sudo systemctl enable NetworkManager.service
       sudo systemctl enable ufw
   elif [[ $distro == "ubuntu" ]]; then

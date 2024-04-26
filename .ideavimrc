@@ -37,14 +37,12 @@ set visualbell
 set showmode
 
 " easymotion
-let mapleader=","
-map <leader>f <Plug>(easymotion-s)
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
+let mapleader=" "
 
 " NERDTree
-nmap <leader>e :NERDTreeFind<cr>
-nmap <leader>E :NERDTreeToggle<cr>
+nmap <leader>e :NERDTreeToggle<cr>
+nmap <C-n> :NERDTreeToggle<cr>
+nmap <C-h> :NERDTreeFocus<cr>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 
@@ -95,7 +93,7 @@ nmap cz <Action>(ToggleDistractionFreeMode)
 nmap <leader>m <Action>(ActiveEditorTab)
 
 " Active terminal tool window
-nmap \t <Action>(ActivateTerminalToolWindow)
+nmap <leader>h <Action>(ActivateTerminalToolWindow)
 
 " Clear search highlighting when pressing Esc twice
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
@@ -108,5 +106,4 @@ nmap Q gqap
 nmap zj o<Esc>k
 nmap zk O<Esc>j
 
-" why?
-inoremap <Esc> <C-[>
+nmap <C-[> <Esc>
