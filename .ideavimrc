@@ -64,40 +64,30 @@ nmap ]] <Action>(MethodDown)
 nmap ]q <Action>(GotoNextElementUnderCaretUsage)
 nmap [q <Action>(GotoPrevElementUnderCaretUsage)
 
-" debug
+" Annotate
+nmap <leader>a <Action>(Annotate)
+" Breakpoint
 nmap <leader>b <Action>(ToggleLineBreakpoint)
-
-" hierarchy
-nmap <leader>c <Action>(CallHierarchy)
+" Active commit tool window
+nmap <leader>c <Action>(ActivateCommitToolWindow)
+" Active editor tab
+nmap <leader>m <Action>(ActiveEditorTab)
+" CompleteStatement
+nmap <leader>s <Action>(Code Generation)
+" Active terminal tool window
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
 
 " show hover info
 nmap <C-k> <Action>(ShowHoverInfo)
-
 " vcs
 nmap \p <Action>(Vcs.UpdateProject)
 nmap \h <Action>(Vcs.ShowTabbedFileHistory)
-
-" Annotate
-nmap <leader>a <Action>(Annotate)
-
 " FileStructurePopup
 nmap \f <Action>(FileStructurePopup)
-
-" CompleteStatement
-nmap <leader>s <Action>(Code Generation)
-
 " Zen mode
 nmap cz <Action>(ToggleDistractionFreeMode)
-
-" Active editor tab
-nmap <leader>m <Action>(ActiveEditorTab)
-
-" Active terminal tool window
-nmap <leader>h <Action>(ActivateTerminalToolWindow)
-
 " Clear search highlighting when pressing Esc twice
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
-
 " Use Q for formatting the current paragraph (or visual selection)
 vmap Q gq
 nmap Q gqap
@@ -106,4 +96,17 @@ nmap Q gqap
 nmap zj o<Esc>k
 nmap zk O<Esc>j
 
-nmap <C-[> <Esc>
+" 分割後に元のページを閉じる
+function! CloseOriginalWindow()
+    " 現在のウィンドウの数が2より大きい場合（分割後の状態）
+    if winnr('$') > 1
+        " 最初のウィンドウを閉じる
+        close
+    endif
+endfunction
+
+" 分割コマンドの後に CloseOriginalWindow 関数を実行する
+augroup AutoCloseOriginalWindow
+    autocmd!
+    autocmd WinEnter * call CloseOriginalWindow()
+augroup END

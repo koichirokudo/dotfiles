@@ -3,6 +3,7 @@
 /.aws
 /.vscode
 /.DS_Store
+/.idea
 /.config/fcitx/
 /.config/fcitx5/
 /.config/ibus/
