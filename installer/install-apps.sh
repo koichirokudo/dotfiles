@@ -13,7 +13,7 @@ function install_apps () {
       man pavucontrol polkit-gnome python-requests grimshot spotify-launcher \
       firefox chromium microsoft-edge-stable vivaldi ufw clamav clamtk thunar \
       tmux feh ranger dnsutils mutt cliphist wofi gvfs npm typescript-language-server \
-      grex fd delta csview git-delta python-pip
+      grex fd delta csview git-delta python-pip vgrep
       sudo systemctl enable NetworkManager.service
       sudo systemctl enable ufw
   elif [[ $distro == "ubuntu" ]]; then
