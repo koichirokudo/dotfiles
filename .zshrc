@@ -145,3 +145,8 @@ eval "$(starship init zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# clamav clamscan
+function clamscan {
+    sudo sh -c "nohup nice -20 clamscan -i -v --log=/root/clamscan.log --move=/root/INFECTED -r '$1' >/root/clam.out 2>&1 &"
+}
