@@ -13,9 +13,12 @@ function install_apps () {
       man pavucontrol polkit-gnome python-requests grimshot spotify-launcher \
       firefox chromium microsoft-edge-stable vivaldi ufw clamav clamtk thunar \
       tmux feh ranger dnsutils mutt cliphist wofi gvfs npm typescript-language-server \
-      grex csview git-delta python-pip 
-      sudo systemctl enable NetworkManager.service
-      sudo systemctl enable ufw
+      grex csview git-delta python-pip php composer php-gd php-intl notion-app-electron \
+      discord slack-desktop
+    sudo mkdir -p /var/log/clamav
+    sudo touch /var/log/clamav/freshclam.log
+    sudo systemctl enable NetworkManager.service
+    sudo systemctl enable ufw
   elif [[ $distro == "ubuntu" ]]; then
     :
   fi

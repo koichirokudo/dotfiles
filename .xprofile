@@ -2,9 +2,13 @@
 
 # DO NOT DELETE this file or move it!!
 
-export WLR_EGL_NO_MODIFIERS=1
-export XDG_CURRENT_DESKTOP=Hyprland
-export XDG_SESSION_TYPE=wayland
-export XDG_SESSION_DESKTOP=Hyprland
+#export WLR_EGL_NO_MODIFIERS=1
+#export XDG_CURRENT_DESKTOP=Hyprland
+#export XDG_SESSION_TYPE=wayland
+#export XDG_SESSION_DESKTOP=Hyprland
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export GLFW_IM_MODULE=ibus
 
 sleep 5

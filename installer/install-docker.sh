@@ -13,8 +13,12 @@ function install_docker () {
     sudo -S usermod -aG docker $USER
     if [ -d /sda ] && [ ! -d /sda/docker ]; then
       mkdir -p /sda/docker
-      cp -ar /var/lib/docker /sda/docker/
-      sudo -S sed -i '/ExecStart/s/$/ --data-root \/sda\/docker/' /lib/systemd/system/docker.service
+      sudo mkdir -p /etc/docker
+      sudo echo <<EOF | sudo tee /etc/docker/daemon.json
+      {
+        "data-root": "/sda/docker/docker"
+      }
+      EOF
     fi
     sudo -S systemctl enable docker
   elif [[ $distro == "ubuntu" ]]; then

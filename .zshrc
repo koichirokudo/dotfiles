@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+export GLFW_IM_MODULE=ibus
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -123,6 +124,8 @@ alias chromium="chromium --ozone-platform=wayland --enable-wayland-ime"
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --gtk-version=4 --verbose"
 alias ls="ls --hyperlink=auto --color=auto"
 alias icat="kitty +kitten icat"
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+alias task="go-task"
 
 # kitty config
 if [[ "$TERM" == "xterm-kitty" ]]; then

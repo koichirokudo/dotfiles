@@ -10,7 +10,7 @@ function install_commands () {
   local distro=$(whichdistro)
   if [[ $distro == "arch" ]]; then
     yay -S --noconfirm --needed bat fd delta lsd ripgrep grex vgrep silicon \
-      xsv csview bandwhich starship fzf 
+      xsv csview bandwhich starship fzf htop iftop go-task
   elif [[ $distro == "ubuntu" ]]; then
     :
   fi
