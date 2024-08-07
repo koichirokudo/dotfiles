@@ -1,3 +1,6 @@
+" easymotion
+let mapleader="\<space>"
+
 "" -- ideavim settings --
 set keep-english-in-normal
 set ideajoin
@@ -13,6 +16,12 @@ set commentary
 set ReplaceWithRegister
 set argtextobj
 set highlightedyank
+" set sneak
+
+" set easymotion settings
+" map <leader>w <Plug>(easymotion-bd-w) " word
+" map <leader>s <Plug>(easymotion-bd-f2) " search
+" map <leader>l <Plug>(easymotion-bd-jk) " line
 
 " Don't use Ex mode, use Q for formatting.
 "map Q gq
@@ -36,8 +45,9 @@ set cursorline
 set visualbell
 set showmode
 
-" easymotion
-let mapleader=" "
+" map jj to <ESC>
+inoremap <silent> jj <ESC>
+
 
 " NERDTree
 nmap <leader>e :NERDTreeToggle<cr>
