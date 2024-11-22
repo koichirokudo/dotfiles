@@ -18,6 +18,12 @@ set argtextobj
 set highlightedyank
 " set sneak
 
+map <Leader>sr :source ~/.ideavimrc<CR>
+map <C-N>  <A-N>
+map <C-P>  <A-P>
+map <C-X>  <A-X>
+map g<C-N> g<A-N>
+
 " set easymotion settings
 " map <leader>w <Plug>(easymotion-bd-w) " word
 " map <leader>s <Plug>(easymotion-bd-f2) " search
@@ -48,11 +54,10 @@ set showmode
 " map jj to <ESC>
 inoremap <silent> jj <ESC>
 
-
 " NERDTree
 nmap <leader>e :NERDTreeToggle<cr>
-nmap <C-n> :NERDTreeToggle<cr>
-nmap <C-h> :NERDTreeFocus<cr>
+nmap <C-h> :NERDTreeToggle<cr>
+"nmap <C-h> :NERDTreeFocus<cr>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 

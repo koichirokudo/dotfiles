@@ -1,0 +1,70 @@
+tap "homebrew/bundle"
+
+# developer tools
+brew "awscli"
+brew "docker"
+brew "docker-compose"
+brew "git"
+brew "neovim"
+brew "vim"
+brew "htop"
+brew "volta"
+brew "tree"
+brew "nmap"
+brew "ansible"
+brew "terraform"
+brew "zsh-syntax-highlighting"
+brew "zsh-completions"
+brew "fzf"
+brew "rust"
+brew "jq"
+brew "fd"
+brew "ripgrep"
+brew "vgrep"
+brew "mas"
+brew "z"
+brew "mutt"
+brew "make"
+brew "docker-completion"
+brew "curl"
+brew "wget"
+brew "ranger"
+brew "tmux"
+brew "peco"
+brew "go-task"
+brew "cocoapods"
+brew "openjdk@17"
+brew "gradle"
+
+# browser
+cask "arc"
+cask "firefox"
+cask "google-chrome"
+cask "microsoft-edge"
+
+# java は手動で入れないと Flutter の動作が不安定になるみたい
+# IDE
+cask "jetbrains-toolbox"
+cask "intellij-idea"
+cask "android-studio"
+
+# fonts
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+
+# tools
+cask "kitty"
+cask "slack"
+cask "discord"
+cask "kindle"
+cask "postman"
+cask "warp"
+cask "raycast"
+cask "espanso"
+
+# app store 
+mas "Xcode", id: 497799835
+mas "Magnet", id: 441258766
+mas "Spark", id: 1176895641
+mas "LINE", id: 539883307
+mas "Enpass", id: 732710998
