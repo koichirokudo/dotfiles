@@ -56,7 +56,6 @@ cask "font-jetbrains-mono-nerd-font"
 cask "kitty"
 cask "slack"
 cask "discord"
-cask "kindle"
 cask "postman"
 cask "warp"
 cask "raycast"
@@ -68,3 +67,4 @@ mas "Magnet", id: 441258766
 mas "Spark", id: 1176895641
 mas "LINE", id: 539883307
 mas "Enpass", id: 732710998
+mas "Kindle", id: 302584613
