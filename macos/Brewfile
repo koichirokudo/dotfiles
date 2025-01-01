@@ -33,14 +33,13 @@ brew "tmux"
 brew "peco"
 brew "go-task"
 brew "cocoapods"
-brew "openjdk@17"
-brew "gradle"
+brew "deno"
+brew "php"
+brew "tig"
 
 # browser
 cask "arc"
-cask "firefox"
 cask "google-chrome"
-cask "microsoft-edge"
 
 # java は手動で入れないと Flutter の動作が不安定になるみたい
 # IDE
