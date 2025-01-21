@@ -1,23 +1,24 @@
 #!/bin/bash
 set -e
 
-OS=$(uname -s | tr '[:upper:]' '[:lower:]')
-echo "Detected OS: $OS"
+# 現在のスクリプトのディレクトリを取得
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+echo "Detected OS: $(uname -s | tr '[:upper:]' '[:lower:]')"
 
-case "$OS" in
+case "$(uname -s | tr '[:upper:]' '[:lower:]')" in
   linux)
     if [ -f /etc/arch-release ]; then
-      bash ./archlinux/installer/installer.sh
+      bash "$SCRIPT_DIR/archlinux/installer/installer.sh"
     else
       echo "Unsupported Linux distribution."
       exit 1
     fi
     ;;
   darwin)
-    bash ./macos/installer/installer.sh
+    bash "$SCRIPT_DIR/macos/installer/installer.sh"
     ;;
   *)
-    echo "Unsupported OS: $OS"
+    echo "Unsupported OS: $(uname -s)"
     exit 1
     ;;
 esac
