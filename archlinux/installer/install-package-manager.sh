@@ -15,7 +15,8 @@ function install_package_manager() {
     if which yay &>/dev/null; then
       command echo "yay is installed."
     else
-      cd /var/tmp
+      mkdir -p ~/builds
+      cd ~/builds
       git clone https://aur.archlinux.org/yay.git
       cd yay
       makepkg -si

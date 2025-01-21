@@ -11,8 +11,8 @@ function install_apps () {
   if [[ $distro == "arch" ]]; then
     yay -S --noconfirm --needed vim neovim pamixer php nodejs networkmanager \
       man pavucontrol polkit-gnome python-requests grimshot spotify-launcher \
-      firefox chromium microsoft-edge-stable vivaldi ufw clamav clamtk thunar \
-      tmux feh ranger dnsutils mutt cliphist wofi gvfs npm typescript-language-server \
+      firefox chromium ufw clamav clamtk thunar \
+      tmux feh ranger dnsutils mutt cliphist wofi gvfs npm \
       grex csview git-delta python-pip php composer php-gd php-intl notion-app-electron \
       discord slack-desktop
     sudo mkdir -p /var/log/clamav
