@@ -12,11 +12,15 @@ function install_docker () {
     if [ -d /sda ] && [ ! -d /sda/docker ]; then
       mkdir -p /sda/docker
       sudo mkdir -p /etc/docker
+      if [[ ! -f /etc/docker/daemon.json ]]; then
       sudo tee /etc/docker/daemon.json > /dev/null <<EOF
 {
   "data-root": "/sda/docker/docker"
 }
 EOF
+      else
+        echo "Warning: /etc/docker/daemon.json already exists. Skipping creation."
+      fi
     fi
     sudo -S systemctl enable docker
   command echo ""
