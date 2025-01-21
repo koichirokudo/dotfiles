@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -ue
 
-source "$(dirname "${BASH_SOURCE[0]:-$0}")"/utils.sh
-
 function install_gui () {
   command echo ""
   command echo -e "Running... $(basename "$0")"

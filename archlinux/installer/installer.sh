@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ue
+set -uex
 
 #-----------------------------------------------------#
 # Main                                                #
@@ -13,7 +13,7 @@ function main () {
   command echo ""
   local current_dir
   current_dir="$(dirname "${BASH_SOURCE[0]:-$0}")"
-  source ../../common/scripts/utils.sh
+  source "$current_dir"/../../common/scripts/utils.sh
 
   # install
   source "$current_dir"/install-package-manager.sh
