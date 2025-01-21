@@ -10,7 +10,7 @@ function install_package_manager() {
   local distro=$(whichdistro)
   local current_dir="$(cd "$(dirname "$0")" && pwd)"
   if [[ $distro == "arch" ]]; then
-    # install yay paru
+    # install yay
     sudo -S pacman -S --noconfirm --needed go git base-devel debugedit fakeroot
     if which yay &>/dev/null; then
       command echo "yay is installed."

@@ -7,5 +7,5 @@
 /.config/fcitx/
 /.config/fcitx5/
 /.config/ibus/
-/.config/kitty/startup_session
-/macos/Brewfile.lock.json
+/common/config/kitty/startup_session
+/macos/installer/Brewfile.lock.json

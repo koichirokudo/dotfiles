@@ -7,7 +7,7 @@ TODO: go-task に対応する
 
 arch linux
 ```bash
-$ bash setup.sh
+$ bash installer.sh
 ```
 
 macOS
