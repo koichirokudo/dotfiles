@@ -31,6 +31,31 @@ link_to_homedir() {
   script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
   dot_dir=$(realpath "${script_dir}/../../common/config")
 
+  # common config directory
+  if [[ "$HOME" != "$dot_dir" ]]; then
+    for f in "$dot_dir"/.??*; do
+      [[ $(basename "$f") =~ $IGNORE_FILES ]] && continue
+
+      if [[ -L "$HOME/$(basename "$f")" ]]; then
+        command echo "[INFO] Removing existing symlink: $HOME/$(basename "$f")"
+        command rm -f "$HOME/$(basename "$f")"
+      fi
+
+      if [[ -e "$HOME/$(basename "$f")" ]]; then
+        timestamp=$(date +"%Y%m%d%H%M%S")
+        command mv "$HOME/$(basename "$f")" "$HOME/.dot_backup/$(basename "$f").$timestamp"
+        command echo "[INFO] Backed up $(basename "$f") as $(basename "$f").$timestamp"
+      fi
+
+      command ln -snf "$f" "$HOME"
+      command echo "[INFO] Linked $f to $HOME"
+    done
+  else
+    command echo "[WARNING] Source and destination are the same. No changes made."
+  fi
+
+  # arch linux config directory
+  dot_dir=$(realpath "${script_dir}/../config")
   if [[ "$HOME" != "$dot_dir" ]]; then
     for f in "$dot_dir"/.??*; do
       [[ $(basename "$f") =~ $IGNORE_FILES ]] && continue
