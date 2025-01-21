@@ -1,0 +1,31 @@
+name: Test Dotfiles Scripts
+
+# トリガー: main ブランチにコードがプッシュされたとき
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # テスト環境: Ubuntu
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # リポジトリのコードを取得
+
+      - name: Set up Arch Linux container
+        run: |
+          docker run -dit --name archlinux archlinux
+          docker exec archlinux bash -c "pacman -Syu --noconfirm && pacman -S --noconfirm base-devel git"
+
+      - name: Copy and run setup script
+        run: |
+          docker cp setup.sh archlinux:/root/setup.sh
+          docker exec archlinux bash -c "bash /root/setup.sh"
+
+      - name: Verify setup
+        run: docker exec archlinux bash -c "command -v vim || echo 'vim not installed'"
+
+      - name: Clean up
+        run: docker rm -f archlinux
+
