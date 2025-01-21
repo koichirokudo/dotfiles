@@ -40,6 +40,7 @@ brew "tig"
 # browser
 cask "arc"
 cask "google-chrome"
+cask "utm"
 
 # java は手動で入れないと Flutter の動作が不安定になるみたい
 # IDE

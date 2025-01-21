@@ -1,7 +1,7 @@
 " easymotion
-let mapleader="\<space>"
+let mapleader= "\<Space>"
 
-"" -- ideavim settings --
+" -- ideavim settings --
 set keep-english-in-normal
 set ideajoin
 set ideastatusicon=gray
@@ -18,19 +18,15 @@ set argtextobj
 set highlightedyank
 " set sneak
 
-map <Leader>sr :source ~/.ideavimrc<CR>
 map <C-N>  <A-N>
 map <C-P>  <A-P>
 map <C-X>  <A-X>
 map g<C-N> g<A-N>
 
 " set easymotion settings
-" map <leader>w <Plug>(easymotion-bd-w) " word
-" map <leader>s <Plug>(easymotion-bd-f2) " search
-" map <leader>l <Plug>(easymotion-bd-jk) " line
-
-" Don't use Ex mode, use Q for formatting.
-"map Q gq
+map <leader>w <Plug>(easymotion-bd-w)
+map <leader>s <Plug>(easymotion-bd-f2)
+map <leader>l <Plug>(easymotion-bd-jk)
 
 "" -- vim settings --
 syntax on
@@ -56,16 +52,12 @@ inoremap <silent> jj <ESC>
 
 " NERDTree
 nmap <leader>e :NERDTreeToggle<cr>
-nmap <C-h> :NERDTreeToggle<cr>
-"nmap <C-h> :NERDTreeFocus<cr>
+nmap <C-h> :NERDTreeFocus<cr>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 
 " Active Editor Close
 map <C-w><C-o> <Action>(CloseAllEditorsButActive)
-
-" editor file move
-"map <C-g><C-w>
 
 " Code jump code reading
 nmap gb <Action>(Back)
@@ -74,10 +66,6 @@ nmap gf <Action>(Forward)
 nmap gl <Action>(QuickJavaDoc)
 nmap gL <Action>(QuickImplementations)
 nmap gh <Action>(ShowErrorDescription)
-nmap [[ <Action>(MethodUp)
-nmap ]] <Action>(MethodDown)
-nmap ]q <Action>(GotoNextElementUnderCaretUsage)
-nmap [q <Action>(GotoPrevElementUnderCaretUsage)
 
 " Annotate
 nmap <leader>a <Action>(Annotate)
@@ -87,8 +75,6 @@ nmap <leader>b <Action>(ToggleLineBreakpoint)
 nmap <leader>c <Action>(ActivateCommitToolWindow)
 " Active editor tab
 nmap <leader>m <Action>(ActiveEditorTab)
-" CompleteStatement
-nmap <leader>s <Action>(Code Generation)
 " Active terminal tool window
 nmap <leader>t <Action>(ActivateTerminalToolWindow)
 
