@@ -106,7 +106,8 @@ while [ $# -gt 0 ]; do
   shift
 done
 
+link_to_homedir install
+
 if [[ "$IS_INSTALL" = true ]]; then
-  link_to_homedir
-  command echo -e "\e[32m[INFO] All dotfiles linked successfully.\e[0m"
+  command echo -e "[INFO] All dotfiles linked successfully."
 fi

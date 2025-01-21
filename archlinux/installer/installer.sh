@@ -16,14 +16,14 @@ function main () {
   source "$current_dir"/../../common/scripts/utils.sh
 
   # install
-  source "$current_dir"/install-package-manager.sh
-  source "$current_dir"/install-gui.sh
-  source "$current_dir"/install-hyprland.sh
-  source "$current_dir"/install-fonts.sh
-  source "$current_dir"/install-fcitx.sh
-  source "$current_dir"/install-apps.sh
-  source "$current_dir"/install-docker.sh
-  source "$current_dir"/install-zsh.sh
+  #source "$current_dir"/install-package-manager.sh
+  #source "$current_dir"/install-gui.sh
+  #source "$current_dir"/install-hyprland.sh
+  #source "$current_dir"/install-fonts.sh
+  #source "$current_dir"/install-fcitx.sh
+  #source "$current_dir"/install-apps.sh
+  #source "$current_dir"/install-docker.sh
+  #source "$current_dir"/install-zsh.sh
   source "$current_dir"/install-dotfiles.sh
 
   command echo ""
