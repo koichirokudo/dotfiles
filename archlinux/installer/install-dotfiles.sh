@@ -5,70 +5,83 @@ set -ue
 # Functions                                           #
 #-----------------------------------------------------#
 
-IGNORE_FILES="^\.(git|ssh|aws|travis|gitconfig|gitconfig-works|gitconfig-private)"
+IGNORE_FILES="^\.(git|ssh|aws|travis|gitconfig(|-works|-private))$"
 
 help_message() {
-  command echo "Usage: $0 [--help | -h]" 0>&2
+  command echo "Usage: $0 [options]"
   command echo ""
+  command echo "Options:"
+  command echo "  --help, -h        Show this help message and exit"
+  command echo "  --debug, -d       Enable debug mode (set -x)"
+  command echo "  install           Link dotfiles to the home directory"
+  command echo ""
+  command echo "Example:"
+  command echo "  $0 install"
 }
 
 link_to_homedir() {
-  command echo ""
-  command echo -e "Running... $(basename "$0")"
-  command echo ""
-  command echo "backup old dotfiles..."
-  if [ ! -d "$HOME/.dot_backup" ];then
-    command echo "$HOME/.dot_backup not found. Auto Make it"
+  command echo "[INFO] Running... $(basename "$0")"
+  command echo "[INFO] Backing up old dotfiles..."
+
+  if [ ! -d "$HOME/.dot_backup" ]; then
+    command echo "[INFO] Creating backup directory at $HOME/.dot_backup"
     command mkdir "$HOME/.dot_backup"
   fi
 
-  local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-  local dotdir=$(dirname "${script_dir}")
+  script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+  dot_dir=$(realpath "${script_dir}/../../common/config")
 
-  if [[ "$HOME" != "$dotdir" ]];then
-    for f in "$dotdir"/.??*; do
-      [[ `basename $f` =~ $IGNORE_FILES ]] && continue
-      if [[ -L "$HOME/`basename $f`" ]];then
-        command rm -f "$HOME/`basename $f`"
+  if [[ "$HOME" != "$dot_dir" ]]; then
+    for f in "$dot_dir"/.??*; do
+      [[ $(basename "$f") =~ $IGNORE_FILES ]] && continue
+
+      if [[ -L "$HOME/$(basename "$f")" ]]; then
+        command echo "[INFO] Removing existing symlink: $HOME/$(basename "$f")"
+        command rm -f "$HOME/$(basename "$f")"
       fi
-      if [[ -e "$HOME/`basename $f`" ]];then
-        command mv "$HOME/`basename $f`" "$HOME/.dot_backup"
+
+      if [[ -e "$HOME/$(basename "$f")" ]]; then
+        timestamp=$(date +"%Y%m%d%H%M%S")
+        command mv "$HOME/$(basename "$f")" "$HOME/.dot_backup/$(basename "$f").$timestamp"
+        command echo "[INFO] Backed up $(basename "$f") as $(basename "$f").$timestamp"
       fi
+
       command ln -snf "$f" "$HOME"
+      command echo "[INFO] Linked $f to $HOME"
     done
   else
-    command echo "same install src dest"
+    command echo "[WARNING] Source and destination are the same. No changes made."
   fi
 }
-
 
 #-----------------------------------------------------#
 # Main                                                #
 #-----------------------------------------------------#
 
-IS_INSTALL="true"
+IS_INSTALL="false"
 
-while [ $# -gt 0 ];do
+while [ $# -gt 0 ]; do
   case ${1} in
     --debug|-d)
       set -uex
       ;;
     --help|-h)
       help_message
-      exit 1
+      exit 0
       ;;
     install)
       IS_INSTALL="true"
       ;;
     *)
+      command echo "[ERROR] Unknown option: $1"
+      help_message
+      exit 1
       ;;
   esac
   shift
 done
 
-if [[ "$IS_INSTALL" = true ]];then
+if [[ "$IS_INSTALL" = true ]]; then
   link_to_homedir
-  command echo ""
-  command echo -e "Done... $(basename "$0")"
-  command echo ""
+  command echo -e "\e[32m[INFO] All dotfiles linked successfully.\e[0m"
 fi
